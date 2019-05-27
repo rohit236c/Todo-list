@@ -4,7 +4,7 @@ export default class TodoItem extends Component {
     render() {
         return (
             <div>
-                TodoItem
+                TodoItem <i class="fas fa-heart-rate    "></i>
             </div>
         )
     }
