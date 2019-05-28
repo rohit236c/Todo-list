@@ -3,7 +3,9 @@ import './TodoItem.css'
 
 export default class TodoItem extends Component {
     render() {
+      
         const{title , handleDelete , toggleDone} = this.props
+       
         return (
            <li className="list-group-item text-capitalize ">
               

@@ -33,8 +33,7 @@ handleSubmit = e =>{
     this.setState({
         items : updatedItems,
         item : '',
-        id : uuid(),
-      
+        id : uuid(),      
     })
 
 };
@@ -53,8 +52,15 @@ handleDelete = (id) =>{
 }
 
 toggleDone = (event,id) => {
-    console.log(event.target.checked)
-    console.log(id)
+    // console.log(event.target.checked)
+    // console.log(id)
+    const updatedItems = [...this.state.items]; //copy the array
+    updatedItems[id] = {...updatedItems[id]}  //copy the id
+    updatedItems[id].Done = event.target.checked; //event added
+    console.log(updatedItems)
+    this.setState ({
+        items : updatedItems ,
+    })
     
 
 }
@@ -75,12 +81,14 @@ render(){
                     handleChange = {this.handleChange}
                     handleSubmit = {this.handleSubmit}
                     />
+                    
                     <TodoList 
                         items = {this.state.items}
                         clearList = {this.clearList}
                         handleDelete = {this.handleDelete}
                         toggleDone = {this.toggleDone} 
                     />
+
                 </div>
             </div>    
         </div>
