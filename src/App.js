@@ -9,7 +9,7 @@ class App extends React.Component{
         items : [],
         id : uuid(),
         item : "",
-        Done : false 
+       
     }
 
     
@@ -17,22 +17,24 @@ handleChange = event =>{
    this.setState(
        { item : event.target.value } )
 }
+
 handleSubmit = e =>{
    
     e.preventDefault();
 
     const newItem = {
         id : this.state.id,
-        title : this.state.item
+        title : this.state.item,
+        Done : false
     }
-    // console.log(newItem)
+    console.log(newItem)
     const updatedItems = [...this.state.items,newItem]
     // console.log(updatedItems)
     this.setState({
         items : updatedItems,
         item : '',
         id : uuid(),
-        Done : false
+      
     })
 
 };
@@ -48,6 +50,13 @@ handleDelete = (id) =>{
     this.setState({
         items : filterItems
     })
+}
+
+toggleDone = (event,id) => {
+    console.log(event.target.checked)
+    console.log(id)
+    
+
 }
 
 
@@ -70,6 +79,7 @@ render(){
                         items = {this.state.items}
                         clearList = {this.clearList}
                         handleDelete = {this.handleDelete}
+                        toggleDone = {this.toggleDone} 
                     />
                 </div>
             </div>    
