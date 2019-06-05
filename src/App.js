@@ -77,7 +77,7 @@ render(){
                     <h4 className="text-center text-captailize text-secondary">Quick and Dirty</h4>
 
                     <TodoInput
-                    item= {this.state.item} 
+                    item = {this.state.item} 
                     handleChange = {this.handleChange}
                     handleSubmit = {this.handleSubmit}
                     />

@@ -13,14 +13,14 @@ export default class TodoInput extends Component {
                             </div>
                         </div>
                         <input
-                         type="text"
+                          type="text"
                           className="form-control" 
                           placeholder="input here"
-                          value = {item}
-                          onChange = {handleChange}
+                          value = { item }
+                          onChange = { handleChange }
                           />
                     </div>
-                    <button onClick={handleSubmit} type="submit" className="btn btn-block btn-primary">ADD</button>
+                    <button onClick={handleSubmit } type="submit" className="btn btn-block btn-primary">ADD</button>
                 </form>
             </div>
         )

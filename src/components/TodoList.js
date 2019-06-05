@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TodoItem from './TodoItem';
 export default class TodoList extends Component {
     render() {
-        const {items , clearList,handleDelete , toggleDone} = this.props
+        const {items , clearList, handleDelete , toggleDone} = this.props
         return (
             <ul className="list-group">
                 <h4 className="text-center">List Items</h4>
