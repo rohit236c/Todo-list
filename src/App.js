@@ -55,11 +55,13 @@ toggleDone = (event,id) => {
     // console.log(event.target.checked)
     // console.log(id)
     const updatedItems = [...this.state.items]; //copy the array
-    updatedItems[id] = {...updatedItems[id]}  //copy the id
-    updatedItems[id].Done = event.target.checked; //event added
+    const filteredArray= updatedItems.filter(item =>
+        item.id!==id
+    )
+    // updatedItems[id].Done = event.target.checked; //event added
     console.log(updatedItems)
     this.setState ({
-        items : updatedItems ,
+        items : filteredArray ,
     })
     
 
