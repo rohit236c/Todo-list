@@ -8,9 +8,7 @@ class App extends React.Component{
     state = {
         items : [],
         id : uuid(),
-        item : "",
-      
-       
+        item : "",      
     }
 
     
@@ -31,7 +29,7 @@ handleSubmit = e =>{
     }
 
     let updatedItems = [...this.state.items]
-    if(newItem.title!== "" && newItem.title!== " "){
+    if(newItem.title !== "" && newItem.title !== " "){
      updatedItems = [...this.state.items,newItem]
     } 
     
@@ -39,8 +37,7 @@ handleSubmit = e =>{
     this.setState({
         items : updatedItems,
         item : '',
-        id : uuid(),
-        
+        id : uuid(),    
        
     })
 
@@ -62,41 +59,39 @@ handleDelete = (id) =>{
 toggleDone = (event,id) => {
     console.log(event.target.checked)
 
-    // console.log(id)
     const updatedItems = [...this.state.items]; 
      updatedItems.forEach(element => {
-        if(element.id === id  ){
+        if( element.id === id  ){
             element.done = event.target.checked
         }
     });
     this.setState({
         items:updatedItems
     })
-    console.log(this.state.items)
 
-    
-    
-    
-    // if(event.target.checked){
-    // }
+    const filterItems = [...this.state.items];
+     
+    filterItems.forEach(item =>{
+        
+        if(item.done === true){
+            item.title = "TASK DONE"
+        }
+       
+    })
 
-    // const filteredArray= updatedItems.filter(item =>
-    //     item.id!==id
-    // )
-    // updatedItems[id].Done = event.target.checked; //event added
-    // this.setState ({
-    //     items : filteredArray ,
-    // })
+    this.setState({
+        items : filterItems
+    })
+
     
 
 }
 toggleItems = () => {
-    // const elements = [...this.state.items] ;
+   
     
- const elements =   this.state.items.reverse()
-    // const lastElement = elements.pop()
-    // elements.unshift(lastElement)
-    // console.log(elements,this.state.items)
+ const elements =   [...this.state.items]
+ elements.reverse();
+  
     this.setState({
         items : elements
     })
