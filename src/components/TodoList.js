@@ -7,14 +7,14 @@ export default class TodoList extends Component {
             <ul className="list-group">
                 <h4 className="text-center">List Items</h4>
             {
-                items.map(item => {
+                items.map((item) => {
                     return <TodoItem 
                     key = {item.id}  
                     title = {item.title} 
                     //so that it is called later
                     // handleChange = {()=>handleChange}
                     handleDelete = { ()=> handleDelete(item.id) }
-                    toggleDone = { (ev) =>{toggleDone(ev,item.id)} }
+                    toggleDone = { (ev) => { toggleDone(ev,item.id) } }
                     
                     />
                     

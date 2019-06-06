@@ -20,7 +20,7 @@ export default class TodoItem extends Component {
               
                <div className="todo-icon col-12">
                    <span className="text-success mr-4">
-                        <input onChange = { toggleDone } type="checkbox"/>
+                        <input onChange = {(e)=> toggleDone(e) } type="checkbox"/>
                    </span>
                   <span className="text">
                       <input 

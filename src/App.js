@@ -9,12 +9,13 @@ class App extends React.Component{
         items : [],
         id : uuid(),
         item : "",
-        done : false
+      
        
     }
 
     
 handleChange = event =>{
+  
    this.setState(
        { item : event.target.value } )
 }
@@ -26,7 +27,7 @@ handleSubmit = e =>{
     const newItem = {
         id : this.state.id,
         title : this.state.item,
-        done : this.state.done
+        done : false
     }
 
     let updatedItems = [...this.state.items]
@@ -38,8 +39,9 @@ handleSubmit = e =>{
     this.setState({
         items : updatedItems,
         item : '',
-        id : uuid(),      
-        done : false 
+        id : uuid(),
+        
+       
     })
 
 };
@@ -59,11 +61,22 @@ handleDelete = (id) =>{
 
 toggleDone = (event,id) => {
     console.log(event.target.checked)
-    console.log(id)
-    const updatedItems = [...this.state.items]; //copy the array
+
+    // console.log(id)
+    const updatedItems = [...this.state.items]; 
+     updatedItems.forEach(element => {
+        if(element.id === id  ){
+            element.done = event.target.checked
+        }
+    });
+    this.setState({
+        items:updatedItems
+    })
+    console.log(this.state.items)
+
     
-    // updatedItems[id].done = true;
-    console.log(updatedItems[0].done)
+    
+    
     // if(event.target.checked){
     // }
 
@@ -83,7 +96,7 @@ toggleItems = () => {
  const elements =   this.state.items.reverse()
     // const lastElement = elements.pop()
     // elements.unshift(lastElement)
-    console.log(elements,this.state.items)
+    // console.log(elements,this.state.items)
     this.setState({
         items : elements
     })
